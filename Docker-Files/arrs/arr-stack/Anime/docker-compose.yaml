@@ -1,0 +1,48 @@
+services:
+  radarr-Anime:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-Anime
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /Docker/radarr-anime/config:/config
+      - /nas/Films:/nas/Films #optional
+      - /nas/Torrents:/nas/Torrents #optional
+    ports:
+      - 7879:7878
+    restart: unless-stopped
+
+  sonarr-Anime:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-Anime
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /Docker/sonarr-anime/config:/config
+      - /nas/TV:/nas/TV #optional
+      - /nas/Torrents:/nas/Torrents #optional
+    ports:
+      - 8990:8989
+    restart: unless-stopped
+ 
+  qbittorrent-Anime:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent-Anime
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - WEBUI_PORT=8082
+      - TORRENTING_PORT=6883
+    volumes:
+      - /Docker/qbittorrent-anime/config:/config
+      - /nas/Torrents:/nas/Torrents #optional
+    ports:
+      - 8082:8082
+      - 6883:6883
+      - 6883:6883/udp
+    restart: unless-stopped

@@ -1,0 +1,13 @@
+services:
+  tautulli:
+    image: ghcr.io/tautulli/tautulli:latest
+    container_name: plex-stats
+    restart: unless-stopped
+    volumes:
+      - /Docker/plex-stats/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    ports:
+      - 8181:8181

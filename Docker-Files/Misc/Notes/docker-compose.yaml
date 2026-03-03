@@ -1,0 +1,12 @@
+services:
+  trilium:
+    image: triliumnext/trilium:latest
+    restart: unless-stopped
+    environment:
+      - TRILIUM_DATA_DIR=/home/node/trilium-data
+    ports:
+      - '7070:8080'
+    volumes:
+      - /Docker/trillium/data:/home/node/trilium-data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
