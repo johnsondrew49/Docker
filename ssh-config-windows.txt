@@ -1,0 +1,5 @@
+Host docker-vm.xandn.org
+  ProxyCommand cloudflared.exe access ssh --hostname %h
+  User xandn
+  IdentityFile ~/.ssh/my_key
+  ServerAliveInterval 240
