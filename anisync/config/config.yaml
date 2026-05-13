@@ -1,0 +1,55 @@
+############################################################################################################
+# This is a template configuration file for AniBridge.                                                     #
+#                                                                                                          #
+# Please refer to the documentation for more details: https://anibridge.eliasbenb.dev/configuration/       #
+############################################################################################################
+
+ global_config:
+   library_provider: "plex"
+   library_provider_config:
+    plex:
+      url: "http://192.168.1.219:32400"
+      token: "mU1QMpkxwPUt8pkxsXEG"
+      #home_user: "johnson431"
+      sections: [Anime]
+      # genres: []
+      # strict: true
+   list_provider: "anilist"
+   list_provider_config:
+    anilist:
+      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjllM2FlN2M1ZDhlMmNlOTZjZmVkZDQyODFmMTVjOTRlYTc4ODZlYjczNDBkODE2YTIzMjQ0MGJiOWMwOGUzMDlkZTQwMWJkZTU5ZGZiYTI1In0.eyJhdWQiOiIzNDAwMyIsImp0aSI6IjllM2FlN2M1ZDhlMmNlOTZjZmVkZDQyODFmMTVjOTRlYTc4ODZlYjczNDBkODE2YTIzMjQ0MGJiOWMwOGUzMDlkZTQwMWJkZTU5ZGZiYTI1IiwiaWF0IjoxNzc4NjY0NzY2LCJuYmYiOjE3Nzg2NjQ3NjYsImV4cCI6MTgxMDIwMDc2Niwic3ViIjoiNzkyMzg2MyIsInNjb3BlcyI6W119.IBq5EBwfkF7twxr_M_uvpt7Sd7rFavGcS1hK4qRBzyZd1mWDrKSAUBAV0Vj-inpvTyU1JO7LxIYn2zKR36ay4Y1HdZqjuxi6nBhmt--8STRx5Q-fO2Hh4GGdddMy0YMrGZIZxvTtadog_QYYq_iuiXTWoQ2uqquVcgIV7HlrpdteMcknBhnHrnxgdGRu2K-jbuJJPhrIFbeUBvmPipPpt3Ym18LyN0DyUoHkn72JTcu77xF2ui3WRHqdZ56gP8LfDB47oblxy1e8ix5Heeu5wbS3Tc0lEPJV3kX9z5S9s9mWJcbtg7iPnZ_MODD8pxQ4ke71U8lzYwcRSwpTFhzMhQedaRmwQtfUMnwZgX85gr_2lUoTruKntX61Kui8ifXD-DxHmyw2CPBIdywNEzrlNHFASjP8DkCJiL0mN1W7TwbzQI6R4njHVYJ8RTjjam9YSsTbdnVkv54-gKK8GLbfCRgJ2R5MenC5EdD01qE_hfONMliTO7PiEAXklL-N24HfGvHP6TTnB9ABKIuh6RwiZJ-1yBLHS2HsThi-nsc4v5gApI4pRiBnAL3t7JK5oi8u8PJzYPGZzu3fXdoiy8fxWU7mBTbtzy9La9AVUB-vry3dBT5xTdp7V6X5mk-OksmJV6f8HBY2zDKbZjkv2-znMXqGZqEKGJVoBNPyU0qPNzk"
+   scan_modes: [periodic, poll]
+   scan_interval: 86400
+   poll_interval: 60
+   full_scan: true
+   destructive_sync: false
+   empty_sync: true
+   sync_rules:
+     templates: [user_rating_requires_completed, disable_user_rating_and_review, prevent_regressions]
+     vars: {}
+     status: true
+     progress: true
+     repeats: true
+     review: true
+     user_rating: true
+     started_at: true
+     finished_at: true
+   backup_retention_days: 30
+   batch_requests: false
+   search_fallback_threshold: 90
+   dry_run: false
+ profiles: {}
+ log_level: INFO
+ mappings_url: "https://github.com/anibridge/anibridge-mappings/releases/download/v3/mappings.json.zst"
+ provider_classes: []
+ threads: null
+ web:
+   enabled: true
+   host: ""
+   port: 4848
+   allow_config_without_auth: false
+   basic_auth:
+     username: xandn
+     password: Claudiaj22-
+     htpasswd_path: null
+     realm: "AniBridge"
