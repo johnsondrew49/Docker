@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: nginx
+    image: 'jc21/nginx-proxy-manager:2.15.0'
+    ports:
+      - '80:80'    # Public HTTP port
+      - '443:443'  # Public HTTPS port
+      - '81:81'    # Admin web interface
+    volumes:
+      - /Docker/nginx/data:/data
+      - /Docker/letsencrypt:/etc/letsencrypt
+    restart: unless-stopped
