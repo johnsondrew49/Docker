@@ -10,6 +10,4 @@ services:
       - /Docker/anisync/config:/config
     ports:
       - 4848:4848
-    # healthcheck:
-    #   # Both `/livez` and `/readyz` endpoints are available
-    #   test: ["CMD", "wget", "-q", "--spider", "http://localhost:4848/livez"]
+    restart: unless-stopped
