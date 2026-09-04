@@ -9,7 +9,8 @@ services:
     volumes:
       - /Docker/radarr-anime/config:/config
       - /nas/Films:/nas/Films #optional
-      - /nas/Torrents:/nas/Torrents #optional
+      - /nas/Torrents/qbittorrent/anime:/nas/Torrents/qbittorrent/anime
+      - /nzb/:/nzb/
     ports:
       - 7879:7878
     restart: unless-stopped
@@ -24,7 +25,8 @@ services:
     volumes:
       - /Docker/sonarr-anime/config:/config
       - /nas/TV:/nas/TV #optional
-      - /nas/Torrents:/nas/Torrents #optional
+      - /nas/Torrents/qbittorrent/anime:/nas/Torrents/qbittorrent/anime
+      - /nzb:/nzb
     ports:
       - 8990:8989
     restart: unless-stopped
@@ -40,7 +42,7 @@ services:
       - TORRENTING_PORT=6883
     volumes:
       - /Docker/qbittorrent-anime/config:/config
-      - /nas/Torrents:/nas/Torrents #optional
+      - /nas/Torrents/qbittorrent/anime:/nas/Torrents/qbittorrent/anime
     ports:
       - 8082:8082
       - 6883:6883

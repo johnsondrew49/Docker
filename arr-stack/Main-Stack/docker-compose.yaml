@@ -9,7 +9,8 @@ services:
     volumes:
       - /Docker/radarr/config:/config
       - /nas/Films:/nas/Films #optional
-      - /nas/Torrents:/nas/Torrents #optional
+      - /nas/Torrents/qbittorrent/film-tv:/nas/Torrents/qbittorrent/film-tv
+      - /nzb/:/nzb/
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -19,12 +20,13 @@ services:
     container_name: sonarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1000i
       - TZ=Europe/London
     volumes:
       - /Docker/sonarr/config:/config
       - /nas/TV/TV:/nas/TV #optional
-      - /nas/Torrents:/nas/Torrents #optional
+      - /nas/Torrents/qbittorrent/film-tv:/nas/Torrents/qbittorrent/film-tv
+      - /nzb/:/nzb/
     ports:
       - 8989:8989
     restart: unless-stopped
