@@ -1,0 +1,19 @@
+services:
+  tidarr:
+    image: cstaelen/tidarr
+    container_name: "tidarr"
+    ports:
+      - 8484:8484
+    volumes:
+      - /Docker/tdarr/config:/shared
+      - /nas/Music/Music/:/music
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - PLEX_URL=http://192.168.1.219:32400
+      #- PLEX_PUBLIC_URL=<public_url>  # optional, for frontend links (if different from internal URL)
+      - PLEX_LIBRARY=22
+      - PLEX_TOKEN=shJbzbn6FP97PKyH8Lxd
+      # Plex path to the library root
+      - PLEX_PATH=/nas/Music/Music
+    restart: "unless-stopped"
